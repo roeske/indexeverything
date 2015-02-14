@@ -35,11 +35,13 @@
     <div>
         <table class="table table-striped">
             <tr>
-                <th>link</th>
-                <th>document</th>
+                <th>original title</th>
+                <th>original url</th>
+                <th>link to saved document</th>
             </tr>
             <tr ng-repeat="page in pages">
                 <td><a href="{{ page.url }}">{{ page.title }}</a></td>
+                <td><a href="{{ page.url }}">{{ page.url | limitTo : 100 }}</a></td>
                 <td><a href="#/page/{{ page._id }}">{{ page.text | limitTo : 500 }}</a></td>
             </tr>
         </table>
