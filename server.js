@@ -43,7 +43,7 @@ api.locals.start(function(err) {
             rejectUnauthorized: false
         };
 
-        https.createServer(options, app).listen(port);
-        console.info('started at localhost: ' + port);
+        https.createServer(app).listen(port);
+        console.info('started at: ' + port);
     }
 });
