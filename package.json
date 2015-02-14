@@ -1,0 +1,20 @@
+{
+  "name": "node-content-manager",
+  "version": "1.0.0",
+  "author": "elegirmeister",
+  "description": "Node.js + MongoDB content manager",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT",
+  "repository": "git@github.com:elegirmeister/node-content-manager",
+  "dependencies": {
+    "bcrypt": "^0.8.1",
+    "body-parser": "^1.10.2",
+    "express": "^4.11.1",
+    "express-session": "^1.10.1",
+    "method-override": "^2.3.1",
+    "mongodb": "^1.4.30",
+    "morgan": "^1.5.1"
+  }
+}
