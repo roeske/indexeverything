@@ -23,26 +23,26 @@
 
 <body ng-app="searchApp">
 <script type="text/ng-template" id="search.html">
-    <div style="width:100%; text-align: center; padding: 10px;">
-        <form class="form-inline">
-            <div class="form-group">
+    <div class="search-block">
+        <form class="form-inline search">
+            <div class="form-group search">
                 <label for="query">Query</label>
-                <input type="text" class="form-control" id="query" ng-model="form.query" required>
+                <input type="text" class="form-control" id="query" ng-model="form.query" style="width: 50%" required>
+                <button type="submit" class="btn btn-default btn-primary" ng-click="searchMongo()">Submit</button>
             </div>
-            <button type="submit" class="btn btn-default" ng-click="searchMongo()">Submit</button>
         </form>
     </div>
     <div>
         <table class="table table-striped">
             <tr>
-                <th style="width: 20%;">original title</th>
+                <th style="width: 15%;">original title</th>
                 <th style="width: 20%;">original url</th>
-                <th style="width: 50%;">link to saved document</th>
+                <th style="width: 60%;">link to saved document</th>
             </tr>
             <tr ng-repeat="page in pages">
-                <td><a href="{{ page.url }}">{{ page.title }}</a></td>
-                <td><a href="{{ page.url }}">{{ page.url | limitTo : 100 }}...</a></td>
-                <td><a href="#/page/{{ page._id }}">{{ page.text | limitTo : 500 }}...</a></td>
+                <td><a target="_blank" href="{{ page.url }}">{{ page.title }}</a></td>
+                <td><a target="_blank" href="{{ page.url }}">{{ page.url | limitTo : 100 }}...</a></td>
+                <td><a target="_blank" href="#/page/{{ page._id }}">{{ page.text | limitTo : 300 }}...</a></td>
             </tr>
         </table>
     </div>

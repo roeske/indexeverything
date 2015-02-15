@@ -35,12 +35,12 @@
             $scope.searchMongo = function searchMongo() {
                 $scope.pages = [];
                 if (!$scope.form.query) {
-                    $scope.pages.push({title: 'Fill search', text: 'Search field required'});
+                    $scope.pages.push({title: 'Fill search', url: 'Fill search', text: 'Search field required'});
                     return;
                 };
 
                 $scope.pages = [];
-                $scope.pages.push({title: 'Loading data', text: 'Searching pages for ' + $scope.form.query});
+                $scope.pages.push({title: 'Loading data', url: 'Loading dara', text: 'Searching stored pages for "' + $scope.form.query +'"'});
 
                 $http({
                     method: 'POST',
@@ -53,7 +53,7 @@
                     success(function (data, status, headers, config) {
                         if(data.length === 0) {
                             $scope.pages = [];
-                            $scope.pages.push({title: 'Not found', text: 'No data for search: ' + $scope.form.query});
+                            $scope.pages.push({title: 'Not found', url: 'Not found', text: 'No data for search: ' + $scope.form.query});
                             return;
                         }
                         $scope.pages = data.sort(function compare(a, b) {
@@ -84,7 +84,6 @@
                         $scope.html = data.text;
                         $scope.trustedHtml = $sce.trustAsHtml($scope.html);
                         $scope.page = data;
-                        //console.log('yay doc ' + data.text);
                     }).
                     error(function (data, status, headers, config) {
                         console.log('Problem finding post ' + status);
