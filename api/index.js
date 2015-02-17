@@ -6,15 +6,16 @@ var api = require("express").Router();
 var MongoClient = require('mongodb').MongoClient;
 var MongoID = require('mongodb').ObjectID;
 
-
-var CONN_STRING = "mongodb://David:SauceAl22zeN@ds049537.mongolab.com:49537/pages";
-//var CONN_STRING = "mongodb://localhost:27017/pages";
 var SEARCH_LIMIT = 100;
-
 api.locals = {};
+
+api.locals.dev = process.env.NODE_ENV !== 'production';
+
+var CONN_STRING = api.locals.dev ? "mongodb://localhost:27017/pages" : "mongodb://David:SauceAl22zeN@ds049537.mongolab.com:49537/pages";
+
 api.locals.isAdmin = function isAdmin(sessionID) {
     return api.locals.admin === sessionID;
-}
+};
 
 api.locals.start = function (runServer) {
     MongoClient.connect(CONN_STRING, function (err, db) {

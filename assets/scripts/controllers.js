@@ -40,7 +40,7 @@
                 };
 
                 $scope.pages = [];
-                $scope.pages.push({title: 'Loading data', url: 'Loading dara', text: 'Searching stored pages for "' + $scope.form.query +'"'});
+                $scope.pages.push({title: 'Loading data', url: 'Loading data', text: 'Searching stored pages for "' + $scope.form.query +'"'});
 
                 $http({
                     method: 'POST',
